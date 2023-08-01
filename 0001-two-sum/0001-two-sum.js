@@ -3,23 +3,21 @@
  * @param {number} target
  * @return {number[]}
  */
-let nums = [3, 2, 3];
-let target = 6;
+var twoSum = function (nums, target) {
+    const hashmap = {};
 
-function twoSum(nums, target) {
-    let numbersIndex = [];
-
-    for (let i = 0; i, i <= nums.length - 1; i++) {
-        for (let j = i + 1; j <= nums.length - 1; j++) {
-            // console.log(j);
-            if (nums[i] + nums[j] === target) {
-                numbersIndex.push(i);
-                numbersIndex.push(j);
-            }
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        if (complement in hashmap) {
+            return [hashmap[complement], i];
         }
+        hashmap[nums[i]] = i;
     }
-    return numbersIndex;
-}
 
-let result = twoSum(nums, target);
-console.log(result);
+    return []; 
+};
+
+
+const nums = [2, 7, 11, 15];
+const target = 9;
+console.log(twoSum(nums, target));
