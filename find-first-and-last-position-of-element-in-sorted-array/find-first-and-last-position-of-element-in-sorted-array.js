@@ -1,13 +1,10 @@
 var searchRange = function (nums, target) {
-    // Initialize variables to store the starting and ending positions.
     let start = findStart(nums, target);
     let end = findEnd(nums, target);
 
-    // Return the starting and ending positions, or [-1, -1] if not found.
     return [start, end];
 };
 
-// Function to find the starting position of the target using binary search.
 function findStart(nums, target) {
     let left = 0;
     let right = nums.length - 1;
